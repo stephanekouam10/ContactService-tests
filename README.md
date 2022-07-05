@@ -9,4 +9,7 @@ Quelques méthodes de tests ont leur définition d'écrite mais pas le corps, à
 100% des règles métiers doivent être testées.
 100% des processus doivent être validés.
 
+Faites un Fork du projet et pensez à effectuer vos commits régulièrement.
+Seul le dernier commit avant l'heure de fin de l'examen sera pris en compte.
+
 Bon courage.
