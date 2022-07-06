@@ -29,45 +29,45 @@ final class ContactServiceUnitTest extends TestCase {
     }
 
     public function testCreationContactWithoutAnyText() {
-        $contactService = new ContactService();
+        $this->contactService = new ContactService();
         $this->expectException(invalidInputException::class);
         $this->expectExceptionMessage('le nom  doit être renseigné');
         $this->expectExceptionMessage('le prenom  doit être renseigné');
-        $contactService->createContact('', '');
+        $this->contactService->createContact('', '');
     }
 
     public function testCreationContactWithoutPrenom() {
-        $contactService = new ContactService();
+        $this->contactService = new ContactService();
         $this->expectException(invalidInputException::class);
         $this->expectExceptionMessage('le prenom doivent être renseignés');
-        $contactService->createContact('nom', '');
+        $this->contactService->createContact('nom', '');
     }
 
     public function testCreationContactWithoutNom() {
-        $contactService = new ContactService();
+        $this->contactService = new ContactService();
         $this->expectException(invalidInputException::class);
         $this->expectExceptionMessage('le nom doivent être renseignés');
-        $contactService->createContact('', 'prenom');
+        $this->contactService->createContact('', 'prenom');
     }
 
     public function testSearchContactWithNumber() {
-        $contactService = new ContactService();
+        $this->contactService = new ContactService();
         $this->expectException(invalidInputException::class);
         $this->expectExceptionMessage('search doit être une chaine de caractères');
-        $contactService->searchContact(0);
+        $this->contactService->searchContact(0);
     }
 
     public function testModifyContactWithInvalidId() {
-        $contactService = new ContactService();
+        $this->contactService = new ContactService();
         $this->expectException(invalidInputException::class);
         $this->expectExceptionMessage("l'id doit être un entier non nul");
-        static::assertTrue($contactService->updateContact(-10, 'nom', 'prenom'));
+        static::assertTrue($this->contactService->updateContact(-10, 'nom', 'prenom'));
     }
 
     public function testDeleteContactWithTextAsId() {
-        $contactService = new ContactService();
+        $this->contactService = new ContactService();
         $this->expectException(invalidInputException::class);
         $this->expectExceptionMessage("l'id doit être un entier non nul");
-        $contactService->deleteContact('test');
+        $this->contactService->deleteContact('test');
     }
 }
